@@ -21,7 +21,7 @@ function Todo(props) {
           Delete
         </button>
         {show && <Modal onClick={handleHideModal} />}
-        {show && <Backdrop />}
+        {show && <Backdrop onClick={handleHideModal} />}
       </div>
     </div>
   );
