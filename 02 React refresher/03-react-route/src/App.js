@@ -7,10 +7,12 @@ import {
 import AllMeetup from "./pages/AllMeetup";
 import Favorite from "./pages/Favorite";
 import NewMeetup from "./pages/NewMeetup";
+import MainNavigation from "./components/layout/MainNavigation";
 
 function App() {
   return (
     <BrowserRouter>
+      <MainNavigation />
       <Switch>
         <Route path="/" exact>
           <AllMeetup />
