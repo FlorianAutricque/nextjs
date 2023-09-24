@@ -22,7 +22,34 @@ export async function getStaticProps() {
     props: {
       products: data.products,
     },
+    // regenerate the page after x seconds to reftech in case there is new data
+    revalidate: 10,
   };
 }
 
 export default HomePage;
+
+// Using React data fetch:
+
+/*
+function App() {
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    fetch('/dummy-backend.json')
+    .then((response) => {
+      return response.json()
+    })
+    .then((data) => {
+      setProducts(data.products)
+    })
+  }, [])
+
+  return (
+    <ul>
+    {products.map(product => (
+      <li key={produc.id}>{product.title} </li>
+    ))}
+    </ul>
+  )
+} */
