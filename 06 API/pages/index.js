@@ -6,6 +6,8 @@ function HomePage() {
   const [errorEmail, setErrorEmail] = useState(null);
   const [errorFeedback, setErrorFeedback] = useState(null);
 
+  const [feedbackItems, setFeedbackItems] = useState([]);
+
   function submitFormHandler(e) {
     e.preventDefault();
 
@@ -23,6 +25,26 @@ function HomePage() {
     } else {
       setErrorFeedback(null);
     }
+
+    const reqBody = { email: enteredEmail, text: enteredFeedback };
+
+    fetch("/api/feedback", {
+      method: "POST",
+      body: JSON.stringify(reqBody),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
+  }
+
+  function loadFeedbackHandler() {
+    fetch("/api/feedback")
+      .then(res => res.json())
+      .then(data => {
+        setFeedbackItems(data.feedback);
+      });
   }
 
   return (
@@ -42,6 +64,13 @@ function HomePage() {
         </div>
         <button>Send Feedback</button>
       </form>
+      <hr />
+      <button onClick={loadFeedbackHandler}>Load feedback</button>
+      <ul>
+        {feedbackItems.map(item => (
+          <li key={item.id}>{item.text}</li>
+        ))}
+      </ul>
     </div>
   );
 }
