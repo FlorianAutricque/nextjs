@@ -17,4 +17,6 @@ class MyDocument extends Document {
   }
 }
 
+export default MyDocument;
+
 // Head from next?head is used to change the head html in any render page. the head we use here is different
