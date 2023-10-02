@@ -11,7 +11,9 @@ function Comments(props) {
   const notificationCtx = useContext(NotificationContext);
 
   const [showComments, setShowComments] = useState(false);
+
   const [comments, setComments] = useState([]);
+
   const [isFetchingComments, setIsFetchingComments] = useState(false);
 
   useEffect(() => {
