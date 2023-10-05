@@ -49,7 +49,7 @@ function ContactForm() {
         message: enteredMessage,
       });
       setRequestStatus("success");
-      setEnteredMessage("");
+      setEnteredName("");
       setEnteredEmail("");
       setEnteredMessage("");
     } catch (error) {
