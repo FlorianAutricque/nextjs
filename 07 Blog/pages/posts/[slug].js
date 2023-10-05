@@ -1,6 +1,5 @@
 import { getPostData, getPostsFiles } from "@/lib/posts-utils";
 import PostContent from "../../components/posts/post-detail/post-content";
-import { useSelectedLayoutSegment } from "next/navigation";
 
 function PostDetailPage({ post }) {
   return <PostContent post={post} />;
